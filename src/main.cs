@@ -54,18 +54,12 @@ namespace MakeAvsWithTemplate
                 os.WriteOptionDescriptions(Console.Error);
                 return;
             }
-
-            string currentDir = Environment.CurrentDirectory;
-
+            
             if (input == null)
-            {
-                input = currentDir + "\\template.avs";
-            }
+                input = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "\\template.avs";
 
             if (output == null)
-            {
-                output = currentDir + "\\output.avs";
-            }
+                output = Environment.CurrentDirectory + "\\output.avs";
 
             File.Copy(input, output, true);
 
