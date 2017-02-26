@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MakeAvsWithTemplate")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("©  2017 tydk27")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
