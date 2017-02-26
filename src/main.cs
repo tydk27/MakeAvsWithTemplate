@@ -59,12 +59,12 @@ namespace MakeAvsWithTemplate
 
             if (input == null)
             {
-                input = currentDir + "template.avs";
+                input = currentDir + "\\template.avs";
             }
 
             if (output == null)
             {
-                input = currentDir + "output.avs";
+                output = currentDir + "\\output.avs";
             }
 
             File.Copy(input, output, true);
