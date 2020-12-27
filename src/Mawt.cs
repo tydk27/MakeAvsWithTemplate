@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Mono.Options;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using Mono.Options;
 
 namespace MakeAvsWithTemplate
 {
-    class main
+    class Mawt
     {
         /// <summary>
         /// Main
@@ -37,7 +37,6 @@ namespace MakeAvsWithTemplate
             }
             catch (OptionException e)
             {
-                Console.WriteLine("FizzBuzz:");
                 Console.WriteLine(e.Message);
                 Console.WriteLine("Try `CommandLineOption --help' for more information.");
                 return;
@@ -75,7 +74,7 @@ namespace MakeAvsWithTemplate
             sw.Write(stream);
             sw.Close();
 
-            Console.WriteLine("created a avs file.");
+            Console.WriteLine("Created a avs file.");
             Console.WriteLine(output);
         }
     }
