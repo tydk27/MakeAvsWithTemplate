@@ -66,7 +66,7 @@ namespace MakeAvsWithTemplate
 
             File.Copy(input, output, true);
 
-            StreamReader sr = new StreamReader(output, Encoding.GetEncoding("Shift_JIS"));
+            StreamReader sr = new StreamReader(output, Encoding.UTF8);
             string stream = sr.ReadToEnd();
             sr.Close();
 
@@ -76,7 +76,7 @@ namespace MakeAvsWithTemplate
                 stream = stream.Replace("___audio___", audio);
             }
 
-            StreamWriter sw = new StreamWriter(output, false, Encoding.GetEncoding("Shift_JIS"));
+            StreamWriter sw = new StreamWriter(output, false, Encoding.UTF8);
             sw.Write(stream);
             sw.Close();
 
