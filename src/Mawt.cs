@@ -7,13 +7,13 @@ using System.Text;
 
 namespace MakeAvsWithTemplate
 {
-    class Mawt
+    internal class Mawt
     {
         /// <summary>
         /// Main
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             bool showHelp = false;
 
@@ -21,7 +21,7 @@ namespace MakeAvsWithTemplate
             string output = null;
             string video = null;
             string audio = null;
-            
+
             OptionSet os = new OptionSet()
                 .Add("i|input=", "input avs", v => input = v)
                 .Add("o|output=", "output avs", v => output = v)
@@ -53,12 +53,16 @@ namespace MakeAvsWithTemplate
                 os.WriteOptionDescriptions(Console.Error);
                 return;
             }
-            
+
             if (input == null)
+            {
                 input = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "\\template.avs";
+            }
 
             if (output == null)
+            {
                 output = Environment.CurrentDirectory + "\\output.avs";
+            }
 
             File.Copy(input, output, true);
 
@@ -68,7 +72,9 @@ namespace MakeAvsWithTemplate
 
             stream = stream.Replace("___video___", video);
             if (audio != null)
+            {
                 stream = stream.Replace("___audio___", audio);
+            }
 
             StreamWriter sw = new StreamWriter(output, false, Encoding.GetEncoding("Shift_JIS"));
             sw.Write(stream);
