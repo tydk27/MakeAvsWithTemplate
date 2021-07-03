@@ -66,7 +66,7 @@ namespace MakeAvsWithTemplate
 
             File.Copy(input, output, true);
 
-            StreamReader sr = new StreamReader(output, Encoding.UTF8);
+            StreamReader sr = new StreamReader(output);
             string stream = sr.ReadToEnd();
             sr.Close();
 
@@ -76,7 +76,7 @@ namespace MakeAvsWithTemplate
                 stream = stream.Replace("___audio___", audio);
             }
 
-            StreamWriter sw = new StreamWriter(output, false, Encoding.UTF8);
+            StreamWriter sw = new StreamWriter(output, false, new UTF8Encoding(false));
             sw.Write(stream);
             sw.Close();
 
